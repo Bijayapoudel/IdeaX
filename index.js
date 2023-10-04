@@ -2,15 +2,13 @@
 
 
 const express = require("express");
-// const cors = require('cors');
+const cors = require('cors');
 require("./config/database");
 
 // const fileUpload = require("express-fileupload");
 
 const auth_route = require("./route/user")
-// const product_route = require("./route/product.js")
-// const order_route = require("./route/order")
-// const review_route = require("./route/review")
+
 require('dotenv').config()
 
 
@@ -18,10 +16,10 @@ const app = express();
 const path = require('path');
 // app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// app.use(cors({
-//   origin: "http://localhost:3000",
-//   optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
-// }));
+app.use(cors({
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200, 
+}));
 
 app.use(express.json());  // Parse JSON data//global middleware
 app.use(express.urlencoded({ extended: true }));  // Parse 
